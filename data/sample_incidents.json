@@ -1,0 +1,49 @@
+
+[
+    {
+        "incident_id": "DEMO-001",
+        "exception_type": "Vehicle Breakdown",
+        "description": "Delivery vehicle broke down during transit while carrying a customer shipment.",
+        "location": "Hyderabad",
+        "priority": "High",
+        "resolution": "Assigned a replacement vehicle to the shipment.",
+        "outcome": "Shipment was delivered successfully."
+    },
+    {
+        "incident_id": "DEMO-002",
+        "exception_type": "Address Error",
+        "description": "The delivery address provided for the customer shipment was incomplete and could not be verified.",
+        "location": "Hyderabad",
+        "priority": "Medium",
+        "resolution": "Contacted the customer and confirmed the correct delivery address.",
+        "outcome": "Shipment was delivered successfully after the address was corrected."
+    },
+    {
+        "incident_id": "DEMO-003",
+        "exception_type": "Delivery Delay",
+        "description": "A customer shipment was delayed and missed its planned delivery window.",
+        "location": "Secunderabad",
+        "priority": "Medium",
+        "resolution": "Rescheduled the delivery and assigned the shipment to the next available delivery route.",
+        "outcome": "Shipment was delivered successfully on the rescheduled route."
+    },
+    {
+        "incident_id": "DEMO-004",
+        "exception_type": "Damaged Package",
+        "description": "A package was found damaged during the delivery process before reaching the customer.",
+        "location": "Hyderabad",
+        "priority": "High",
+        "resolution": "Held the damaged package and arranged a replacement shipment.",
+        "outcome": "Replacement package was delivered successfully."
+    },
+    {
+        "incident_id": "DEMO-005",
+        "exception_type": "Failed Delivery",
+        "description": "The delivery attempt failed because the customer was unavailable at the delivery location.",
+        "location": "Secunderabad",
+        "priority": "Medium",
+        "resolution": "Rescheduled the delivery for the customer's preferred time.",
+        "outcome": "Shipment was delivered successfully on the second attempt."
+    }
+]
+

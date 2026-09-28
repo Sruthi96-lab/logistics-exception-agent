@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Logistics Exception Agent</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header>
+            <div class="header-content">
+
+                <div>
+                    <h1>Logistics Exception Agent</h1>
+
+                    <p>
+                        AI-powered incident analysis with persistent learning
+                    </p>
+                </div>
+
+                <div class="status-badge">
+                    ● Hindsight Memory Connected
+                </div>
+
+            </div>
+        </header>
+
+
+        <!-- INCIDENT FORM -->
+        <section class="card">
+
+            <div class="section-heading">
+                <h2>Report a Logistics Exception</h2>
+
+                <p>
+                    Submit an incident and let the AI agent analyze previous
+                    logistics experiences before recommending an action.
+                </p>
+            </div>
+
+
+            <form id="incidentForm">
+
+                <div class="form-grid">
+
+                    <!-- INCIDENT ID -->
+                    <div class="form-group">
+
+                        <label for="incident_id">
+                            Incident ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="incident_id"
+                            name="incident_id"
+                            placeholder="Example: INC-013"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EXCEPTION TYPE -->
+                    <div class="form-group">
+
+                        <label for="exception_type">
+                            Exception Type
+                        </label>
+
+                        <select
+                            id="exception_type"
+                            name="exception_type"
+                            required
+                        >
+
+                            <option value="">
+                                Select exception
+                            </option>
+
+                            <option value="Vehicle Breakdown">
+                                Vehicle Breakdown
+                            </option>
+
+                            <option value="Address Error">
+                                Address Error
+                            </option>
+
+                            <option value="Delivery Delay">
+                                Delivery Delay
+                            </option>
+
+                            <option value="Damaged Package">
+                                Damaged Package
+                            </option>
+
+                            <option value="Failed Delivery">
+                                Failed Delivery
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+                    <div class="form-group full">
+
+                        <label for="description">
+                            Incident Description
+                        </label>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            placeholder="Describe what happened..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- LOCATION -->
+                    <div class="form-group">
+
+                        <label for="location">
+                            Location
+                        </label>
+
+                        <input
+                            type="text"
+                            id="location"
+                            name="location"
+                            placeholder="Example: Hyderabad"
+                        >
+
+                    </div>
+
+
+                    <!-- PRIORITY -->
+                    <div class="form-group">
+
+                        <label for="priority">
+                            Priority
+                        </label>
+
+                        <select
+                            id="priority"
+                            name="priority"
+                        >
+
+                            <option value="Low">
+                                Low
+                            </option>
+
+                            <option value="Medium" selected>
+                                Medium
+                            </option>
+
+                            <option value="High">
+                                High
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ANALYZE BUTTON -->
+                <button
+                    type="submit"
+                    id="analyzeButton"
+                    class="primary-button"
+                >
+                    Analyze Incident
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- LOADING -->
+        <div
+            id="loading"
+            class="loading hidden"
+        >
+            <div class="spinner"></div>
+
+            <span>
+                Analyzing incident and searching Hindsight memory...
+            </span>
+        </div>
+
+
+        <!-- AI RESULT -->
+        <section
+            id="resultSection"
+            class="card result-card hidden"
+        >
+
+            <div class="result-header">
+
+                <div>
+                    <h2>AI Analysis</h2>
+
+                    <p>
+                        Recommendation generated using previous logistics
+                        experiences.
+                    </p>
+                </div>
+
+                <div class="ai-badge">
+                    AI Recommendation
+                </div>
+
+            </div>
+
+
+            <!-- ANALYSIS -->
+            <div class="result-block">
+
+                <h3>Analysis</h3>
+
+                <div id="analysis" class="result-content"></div>
+
+            </div>
+
+
+            <!-- RECOMMENDATION -->
+            <div class="result-block">
+
+                <h3>Recommended Action</h3>
+
+                <div
+                    id="recommendation"
+                    class="recommendation-box"
+                ></div>
+
+            </div>
+
+
+            <!-- MEMORIES -->
+            <div class="result-block">
+
+                <h3>Similar Past Incidents</h3>
+
+                <div id="memories"></div>
+
+            </div>
+
+
+            <!-- RESOLUTION -->
+            <div class="resolve-box">
+
+                <h3>
+                    Close Incident & Teach the Agent
+                </h3>
+
+                <p>
+                    Enter the actual resolution and outcome.
+                    This experience will be stored in Hindsight
+                    and can be recalled for future incidents.
+                </p>
+
+
+                <div class="resolve-form">
+
+                    <label for="resolution">
+                        Actual Resolution
+                    </label>
+
+                    <textarea
+                        id="resolution"
+                        placeholder="Example: Assigned a replacement vehicle"
+                    ></textarea>
+
+
+                    <label for="outcome">
+                        Outcome
+                    </label>
+
+                    <textarea
+                        id="outcome"
+                        placeholder="Example: Shipment delivered successfully"
+                    ></textarea>
+
+
+                    <button
+                        type="button"
+                        id="resolveButton"
+                        class="secondary-button"
+                    >
+                        Save Resolution & Learn
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="resolveSuccess"
+                    class="success hidden"
+                ></div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script src="/static/app.js"></script>
+
+</body>
+
+</html>
+
